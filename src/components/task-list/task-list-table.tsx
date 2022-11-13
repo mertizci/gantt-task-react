@@ -1,25 +1,9 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styles from "./task-list-table.module.css";
 import { Task } from "../../types/public-types";
 
-const localeDateStringCache = {};
-const toLocaleDateStringFactory =
-  (locale: string) =>
-  (date: Date, dateTimeOptions: Intl.DateTimeFormatOptions) => {
-    const key = date.toString();
-    let lds = localeDateStringCache[key];
-    if (!lds) {
-      lds = date.toLocaleDateString(locale, dateTimeOptions);
-      localeDateStringCache[key] = lds;
-    }
-    return lds;
-  };
-const dateTimeOptions: Intl.DateTimeFormatOptions = {
-  weekday: "short",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
+
+
 
 export const TaskListTableDefault: React.FC<{
   rowHeight: number;
@@ -37,13 +21,8 @@ export const TaskListTableDefault: React.FC<{
   tasks,
   fontFamily,
   fontSize,
-  locale,
   onExpanderClick,
 }) => {
-  const toLocaleDateString = useMemo(
-    () => toLocaleDateStringFactory(locale),
-    [locale]
-  );
 
   return (
     <div
@@ -61,6 +40,9 @@ export const TaskListTableDefault: React.FC<{
           expanderSymbol = "▶";
         }
 
+        // @ts-ignore
+        // @ts-ignore
+        // @ts-ignore
         return (
           <div
             className={styles.taskListTableRow}
@@ -92,21 +74,28 @@ export const TaskListTableDefault: React.FC<{
             <div
               className={styles.taskListCell}
               style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
+                minWidth: '100px',
+                maxWidth: '100px',
               }}
             >
-              &nbsp;{toLocaleDateString(t.start, dateTimeOptions)}
+              &nbsp;{
+              ('0' + t.start.getDate()).slice(-2) + '.'
+              + ('0' + (t.start.getMonth()+1)).slice(-2) + '.'
+              + t.start.getFullYear()
+            }
             </div>
             <div
               className={styles.taskListCell}
               style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
+                minWidth: '100px',
+                maxWidth: '100px',
               }}
             >
-              &nbsp;{toLocaleDateString(t.end, dateTimeOptions)}
-            </div>
+              &nbsp;{
+              ('0' + t.end.getDate()).slice(-2) + '.'
+              + ('0' + (t.end.getMonth()+1)).slice(-2) + '.'
+              + t.end.getFullYear()
+            }</div>
           </div>
         );
       })}

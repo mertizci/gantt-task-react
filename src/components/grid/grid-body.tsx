@@ -63,10 +63,21 @@ export const GridBody: React.FC<GridBodyProps> = ({
   let today: ReactChild = <rect />;
   for (let i = 0; i < dates.length; i++) {
     const date = dates[i];
+    let Birinci = 0;
+    let Sonuncu = 0;
+
+    if(date.getMonth() == 0)
+    {
+       Birinci = 25 * (i+1);
+    }
+
+    ///mert
     ticks.push(
       <line
         key={date.getTime()}
         x1={tickX}
+        style={Birinci != 0 || Sonuncu != 0 ? {stroke:'#000'} : {stroke:'#fff4f4'}}
+
         y1={0}
         x2={tickX}
         y2={y}

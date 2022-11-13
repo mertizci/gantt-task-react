@@ -9,13 +9,13 @@ const App = () => {
   const [view, setView] = React.useState<ViewMode>(ViewMode.Day);
   const [tasks, setTasks] = React.useState<Task[]>(initTasks());
   const [isChecked, setIsChecked] = React.useState(true);
-  let columnWidth = 65;
+  let columnWidth = 25;
   if (view === ViewMode.Year) {
-    columnWidth = 350;
+    columnWidth = 100;
   } else if (view === ViewMode.Month) {
-    columnWidth = 300;
+    columnWidth = 25;
   } else if (view === ViewMode.Week) {
-    columnWidth = 250;
+    columnWidth = 100;
   }
 
   const handleTaskChange = (task: Task) => {
@@ -77,7 +77,7 @@ const App = () => {
       <h3>Gantt With Unlimited Height</h3>
       <Gantt
         tasks={tasks}
-        viewMode={view}
+        viewMode={ViewMode.Month}
         onDateChange={handleTaskChange}
         onDelete={handleTaskDelete}
         onProgressChange={handleProgressChange}
@@ -85,23 +85,10 @@ const App = () => {
         onClick={handleClick}
         onSelect={handleSelect}
         onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
+        listCellWidth={isChecked ? "315px" : ""}
         columnWidth={columnWidth}
-      />
-      <h3>Gantt With Limited Height</h3>
-      <Gantt
-        tasks={tasks}
-        viewMode={view}
-        onDateChange={handleTaskChange}
-        onDelete={handleTaskDelete}
-        onProgressChange={handleProgressChange}
-        onDoubleClick={handleDblClick}
-        onClick={handleClick}
-        onSelect={handleSelect}
-        onExpanderClick={handleExpanderClick}
-        listCellWidth={isChecked ? "155px" : ""}
-        ganttHeight={300}
-        columnWidth={columnWidth}
+        rowHeight={30}
+        locale={'tr-TR'}
       />
     </div>
   );
