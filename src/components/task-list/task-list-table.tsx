@@ -80,7 +80,7 @@ export const TaskListTableDefault: React.FC<{
                       ? styles.taskListExpander
                       : styles.taskListEmptyExpander
                   }
-                  onClick={() => onExpanderClick(t)}
+
                     >
                   {expanderSymbol}
                   </div>
@@ -88,7 +88,7 @@ export const TaskListTableDefault: React.FC<{
                   expanderSymbol
                     ? styles.bold
                     : styles.nobold
-                }>       <a data-tip data-for={`${t.id}tool`}>{t.name}</a></div>
+                }>       <a data-tip data-for={`${t.id}tool`}  onClick={() => onExpanderClick(t)} >{t.name}</a></div>
               </div>
             </div>
             <div
