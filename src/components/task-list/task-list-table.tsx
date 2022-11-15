@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./task-list-table.module.css";
 import { Task } from "../../types/public-types";
+import ReactTooltip from "react-tooltip";
 
 
 
@@ -68,6 +69,10 @@ export const TaskListTableDefault: React.FC<{
               }}
               title={t.name}
             >
+              <ReactTooltip id={`${t.id}tool`} type='warning' effect='solid'>
+                <span>{t.name}</span>
+              </ReactTooltip>
+
               <div className={styles.taskListNameWrapper}>
                    <div
                   className={
@@ -79,7 +84,11 @@ export const TaskListTableDefault: React.FC<{
                     >
                   {expanderSymbol}
                   </div>
-                <div>{t.name}</div>
+                <div                   className={
+                  expanderSymbol
+                    ? styles.bold
+                    : styles.nobold
+                }>       <a data-tip data-for={`${t.id}tool`}>{t.name}</a></div>
               </div>
             </div>
             <div

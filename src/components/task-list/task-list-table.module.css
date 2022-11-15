@@ -36,3 +36,11 @@
   padding-left: 1rem;
   user-select: none;
 }
+.bold {
+  font-size: medium;
+  font-weight: bolder;
+}
+
+.nobold {
+  font-weight: normal;
+}

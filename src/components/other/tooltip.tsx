@@ -133,22 +133,17 @@ export const StandardTooltipContent: React.FC<{
 
 
   } else {
-    Goster = '-' + task.end.getDate()+'.'+task.end.getMonth() + 1+'.'+task.end.getFullYear();
+    Goster = '-' + task.end.getDate()+'.'+ (task.end.getMonth()+1)+'.'+task.end.getFullYear();
   }
 
   return (
     <div className={styles.tooltipDefaultContainer} style={style}>
       <b style={{ fontSize: fontSize + 6 }}>{`${
         task.name
-      }Tarihler: ${task.start.getDate()}.${
+      }   |  ${task.start.getDate()}.${
         task.start.getMonth() + 1
       }.${task.start.getFullYear()}${Goster}`}</b>
-      {task.end.getTime() - task.start.getTime() !== 0 && (
-        <p className={styles.tooltipDefaultContainerParagraph}>{`Süre: ${~~(
-          (task.end.getTime() - task.start.getTime()) /
-          (1000 * 60 * 60 * 24)
-        )} gün`}</p>
-      )}
+
 
 {/*      <p className={styles.tooltipDefaultContainerParagraph}>
         {!!task.progress && `Geçen Süre: ${task.progress} %`}
