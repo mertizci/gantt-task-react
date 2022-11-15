@@ -1,13 +1,19 @@
 .tooltipDefaultContainer {
-  background: #fff;
-  padding: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background: #F0AD4E;
+  padding: 10px;
+  opacity: 80%;
+  color: #fff;
+  font-size: 6px;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
 }
 
 .tooltipDefaultContainerParagraph {
-  font-size: 12px;
+  font-size: 6px;
   margin-bottom: 6px;
-  color: #666;
+  color: #fff;
+
 }
 
 .tooltipDetailsContainer {
