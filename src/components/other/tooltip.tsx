@@ -121,25 +121,38 @@ export const StandardTooltipContent: React.FC<{
     fontSize,
     fontFamily,
   };
+  let Goster = '';
+
+  let currentTimes = new Date();
+  if(currentTimes.getDate().toString() == ('0' + task.end.getDate()).slice(-2)
+    && currentTimes.getFullYear() == task.end.getFullYear()
+    && ('0' + (task.end.getMonth()+1)).slice(-2) == (currentTimes.getMonth()+1).toString()
+  )
+  {
+    Goster = '';
+
+
+  } else {
+    Goster = '-' + task.end.getDate()+'.'+task.end.getMonth() + 1+'.'+task.end.getFullYear();
+  }
+
   return (
     <div className={styles.tooltipDefaultContainer} style={style}>
       <b style={{ fontSize: fontSize + 6 }}>{`${
         task.name
-      }: ${task.start.getDate()}-${
+      }Tarihler: ${task.start.getDate()}.${
         task.start.getMonth() + 1
-      }-${task.start.getFullYear()} - ${task.end.getDate()}-${
-        task.end.getMonth() + 1
-      }-${task.end.getFullYear()}`}</b>
+      }.${task.start.getFullYear()}${Goster}`}</b>
       {task.end.getTime() - task.start.getTime() !== 0 && (
         <p className={styles.tooltipDefaultContainerParagraph}>{`Süre: ${~~(
           (task.end.getTime() - task.start.getTime()) /
           (1000 * 60 * 60 * 24)
-        )} day(s)`}</p>
+        )} gün`}</p>
       )}
 
-      <p className={styles.tooltipDefaultContainerParagraph}>
-        {!!task.progress && `Tamamlanma: ${task.progress} %`}
-      </p>
+{/*      <p className={styles.tooltipDefaultContainerParagraph}>
+        {!!task.progress && `Geçen Süre: ${task.progress} %`}
+      </p>*/}
     </div>
   );
 };

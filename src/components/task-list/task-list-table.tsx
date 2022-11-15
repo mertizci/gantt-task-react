@@ -34,12 +34,23 @@ export const TaskListTableDefault: React.FC<{
     >
       {tasks.map(t => {
         let expanderSymbol = "";
+        let Goster = 1;
         if (t.hideChildren === false) {
           expanderSymbol = "▼";
         } else if (t.hideChildren === true) {
           expanderSymbol = "▶";
+
         }
 
+        let currentTimes = new Date();
+        if(currentTimes.getDate().toString() == ('0' + t.end.getDate()).slice(-2)
+          && currentTimes.getFullYear() == t.end.getFullYear()
+          && ('0' + (t.end.getMonth()+1)).slice(-2) == (currentTimes.getMonth()+1).toString()
+      )
+        {
+           Goster = 0;
+
+        }
         // @ts-ignore
         // @ts-ignore
         // @ts-ignore
@@ -58,16 +69,16 @@ export const TaskListTableDefault: React.FC<{
               title={t.name}
             >
               <div className={styles.taskListNameWrapper}>
-                <div
+                   <div
                   className={
                     expanderSymbol
                       ? styles.taskListExpander
                       : styles.taskListEmptyExpander
                   }
                   onClick={() => onExpanderClick(t)}
-                >
+                    >
                   {expanderSymbol}
-                </div>
+                  </div>
                 <div>{t.name}</div>
               </div>
             </div>
@@ -79,6 +90,7 @@ export const TaskListTableDefault: React.FC<{
               }}
             >
               &nbsp;{
+
               ('0' + t.start.getDate()).slice(-2) + '.'
               + ('0' + (t.start.getMonth()+1)).slice(-2) + '.'
               + t.start.getFullYear()
@@ -92,6 +104,7 @@ export const TaskListTableDefault: React.FC<{
               }}
             >
               &nbsp;{
+              Goster==1 &&
               ('0' + t.end.getDate()).slice(-2) + '.'
               + ('0' + (t.end.getMonth()+1)).slice(-2) + '.'
               + t.end.getFullYear()
