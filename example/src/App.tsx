@@ -24,7 +24,7 @@ const App = () => {
         onExpanderClick={handleExpanderClick}
         listCellWidth={'315px'}
         columnWidth={18}
-        rowHeight={24}
+        rowHeight={35}
         locale={'tr-TR'}
       />
 
