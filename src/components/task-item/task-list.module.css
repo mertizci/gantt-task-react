@@ -13,7 +13,6 @@
 
 .barLabelOutside {
   fill: #555;
-  visibility: collapse;
   text-anchor: start;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
