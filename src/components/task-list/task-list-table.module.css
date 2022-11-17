@@ -48,3 +48,8 @@
 .nobold {
   font-weight: normal;
 }
+
+.gri{
+  color:#A0A0A0;
+  font-weight: normal !important;
+}

@@ -88,7 +88,12 @@ export const TaskListTableDefault: React.FC<{
                   expanderSymbol
                     ? styles.bold
                     : styles.nobold
-                }>       <a data-tip data-for={`${t.id}tool`}  onClick={() => onExpanderClick(t)} >{t.name}</a></div>
+                }>       <a data-tip data-for={`${t.id}tool`}  onClick={() => onExpanderClick(t)}
+
+                            className={
+                              Goster
+                                ? styles.gri : ''
+                            }>{t.name}</a></div>
               </div>
             </div>
             <div
