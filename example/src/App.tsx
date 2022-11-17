@@ -22,9 +22,9 @@ const App = () => {
         tasks={tasks}
         viewMode={ViewMode.Month}
         onExpanderClick={handleExpanderClick}
-        listCellWidth={'315px'}
+        listCellWidth={'465px'}
         columnWidth={18}
-        rowHeight={35}
+        rowHeight={24}
         locale={'tr-TR'}
       />
 

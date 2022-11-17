@@ -41,6 +41,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   barBackgroundColor = "#b8c2cc",
   barBackgroundSelectedColor = "#aeb8c2",
   projectProgressColor = "#524181",
+  hide=false,
   projectProgressSelectedColor = "#524181",
   projectBackgroundColor = "hsl(205.6, 100%, 29.4%)",
   projectBackgroundSelectedColor = "hsl(205.6, 100%, 29.4%)",
@@ -139,7 +140,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         projectBackgroundColor,
         projectBackgroundSelectedColor,
         milestoneBackgroundColor,
-        milestoneBackgroundSelectedColor
+        milestoneBackgroundSelectedColor,
+        hide
       )
     );
   }, [
@@ -164,6 +166,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     rtl,
     scrollX,
     onExpanderClick,
+    hide
   ]);
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import { Task } from "../../dist/types/public-types";
 
 export function initTasks() {
   const currentDate = new Date();
+
   const tasks: Task[] = [
     {
       start: new Date(2015, 9, 12),
@@ -10,6 +11,7 @@ export function initTasks() {
       id: "ipotekTeminatları",
       progress: 100,
       type: "project",
+      styles: {hide:true},
       hideChildren: false,
       displayOrder: 1,
     },
@@ -29,6 +31,8 @@ export function initTasks() {
       name: "İpotek",
       id: "ipotek",
       progress: 100,
+      styles: {hide:true},
+
       type: "project",
       hideChildren: false,
       displayOrder: 3,
@@ -41,6 +45,7 @@ export function initTasks() {
       progress: 100,
       // dependencies: ["Task 0"],
       type: "task",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       project: "ipotek",
       displayOrder: 4,
     },
@@ -75,6 +80,7 @@ export function initTasks() {
       // dependencies: ["Task 0"],
       type: "task",
       project: "ipotek",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       displayOrder: 7,
     },
     {
@@ -95,6 +101,8 @@ export function initTasks() {
       id: "ekspertiz",
       progress: 100,
       type: "project",
+      styles: {hide:true},
+
       hideChildren: false,
       displayOrder: 9,
     },
@@ -106,6 +114,7 @@ export function initTasks() {
       progress: 100,
       // dependencies: ["Task 0"],
       type: "task",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       project: "ekspertiz",
       displayOrder: 10,
     },
@@ -117,6 +126,7 @@ export function initTasks() {
       progress: 100,
       // dependencies: ["Task 0"],
       type: "task",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       project: "ekspertiz",
       displayOrder: 11,
     },
@@ -132,23 +142,26 @@ export function initTasks() {
       displayOrder: 12,
     },
     {
-      start: new Date(2008, 12, 4),
+      start: new Date(2017, 12, 4),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: "Ana Taşınmaz - 10 Katlı Betonarme Bina",
       id: "anaTasinmaz-sbi",
       progress: 100,
+      styles: {hide:true},
+
       type: "project",
-      hideChildren: false,
+      hideChildren: true,
       displayOrder: 13,
     },
     {
-      start: new Date(2008, 12, 4),
+      start: new Date(2016, 12, 4),
       end: new Date(2017,11,14),
       name: " Şerh: Tamamı Orman Sınırı İçinde   ",
       id: "anaTasinmaz-sbi-1",
       progress: 100,
       // dependencies: ["Task 0"],
       type: "task",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       project: "anaTasinmaz-sbi",
       displayOrder: 14,
     },
@@ -160,6 +173,7 @@ export function initTasks() {
       progress: 100,
       // dependencies: ["Task 0"],
       type: "task",
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       project: "anaTasinmaz-sbi",
       displayOrder: 15,
     },
@@ -175,17 +189,19 @@ export function initTasks() {
       displayOrder: 16,
     },
     {
-      start: new Date(2007, 10, 10),
+      start: new Date(2017, 10, 10),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: "Bağımsız Bölüm - No:4",
       id: "bagimsizBolum-sbi",
       progress: 100,
       type: "project",
-      hideChildren: false,
+      styles: {hide:true},
+
+      hideChildren: true,
       displayOrder: 17,
     },
     {
-      start: new Date(2007, 10, 10),
+      start: new Date(2017, 10, 10),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: " Şerh: Kira Şerhi (01.01.2028'e kadar)    ",
       id: "bagimsizBolum-sbi-1",
@@ -207,30 +223,33 @@ export function initTasks() {
       displayOrder: 19,
     },
     {
-      start: new Date(2005, 10, 16),
-      end: new Date(2022,3,23),
+      start: new Date(2017, 10, 16),
+      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: "Malikler",
       id: "Malikler",
       progress: 100,
+      styles: {hide:true},
+
       type: "project",
       hideChildren: false,
       displayOrder: 20,
     },
     {
-      start: new Date(2007, 10, 16),
-      end: new Date(2021,3,23),
+      start: new Date(2015, 10, 16),
+      end: new Date(2016,3,23),
       name: "1. Ahmet Güneş (1/2) Hisse",
       id: "1.Hissedar",
       progress: 100,
       type: "project",
-      project: "Malikler",
 
-      hideChildren: false,
+      project: "Malikler",
+      hideChildren: true,
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       displayOrder: 21,
     },
     {
-      start: new Date(2007, 10, 16),
-      end: new Date(2021,3,21),
+      start: new Date(2016, 10, 16),
+      end: new Date(2017,3,21),
       name: " Mülkiyet Edinim Şekli: İntikal    ",
       id: "1.Hissedar-1",
       progress: 100,
@@ -240,8 +259,8 @@ export function initTasks() {
       displayOrder: 22,
     },
     {
-      start: new Date(2018, 7, 7),
-      end: new Date(2020,1,9),
+      start: new Date(2016, 7, 7),
+      end: new Date(2017,1,9),
       name: " Şerh: İhtiyati Haciz   ",
       id: "1.Hissedar-2",
       progress: 100,
@@ -251,8 +270,8 @@ export function initTasks() {
       displayOrder: 23,
     },
     {
-      start: new Date(2018, 3, 17),
-      end: new Date(2020,9,10),
+      start: new Date(2016, 3, 17),
+      end: new Date(2017,9,10),
       name: " Beyan: 5807 S.K. 4. Maddesine Göre Beyan    ",
       id: "1.Hissedar-3",
       progress: 100,
@@ -262,20 +281,20 @@ export function initTasks() {
       displayOrder: 24,
     },
     {
-      start: new Date(2007, 10, 16),
-      end: new Date(2021,3,23),
+      start: new Date(2017, 10, 16),
+      end: new Date(2018,3,23),
       name: "2. Ayşenur Güneş (1/2) Hisse",
       id: "2.Hissedar",
       progress: 100,
       type: "project",
       project: "Malikler",
-
-      hideChildren: false,
+      hideChildren: true,
+      styles: { progressColor: 'gray', progressSelectedColor: 'gray',backgroundColor: 'gray' },
       displayOrder: 25,
     },
     {
-      start: new Date(2007, 10, 16),
-      end: new Date(2021,3,21),
+      start: new Date(2017, 10, 16),
+      end: new Date(2018,3,21),
       name: " Mülkiyet Edinim Şekli: İntikal    ",
       id: "2.Hissedar-1",
       progress: 100,
@@ -285,8 +304,8 @@ export function initTasks() {
       displayOrder: 26,
     },
     {
-      start: new Date(2016, 2, 22),
-      end: new Date(2021,3,16),
+      start: new Date(2017, 2, 22),
+      end: new Date(2018,3,16),
       name: " Şerh: İhtiyati Haciz   ",
       id: "2.Hissedar-2",
       progress: 100,
@@ -297,7 +316,7 @@ export function initTasks() {
     },
     {
       start: new Date(2017, 7, 12),
-      end: new Date(2021,3,16),
+      end: new Date(2018,3,16),
       name: " Beyan: 5807 S.K. 4. Maddesine Göre Beyan    ",
       id: "2.Hissedar-3",
       progress: 100,
@@ -307,19 +326,19 @@ export function initTasks() {
       displayOrder: 28,
     },
     {
-      start: new Date(2021, 3, 18),
+      start: new Date(2018, 3, 16),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: "3. Cemil Merkant (1/1) Hisse",
       id: "3.Hissedar",
       progress: 100,
       type: "project",
       project: "Malikler",
-
       hideChildren: false,
       displayOrder: 29,
     },
     {
-      start: new Date(2021, 3, 18),
+      start: new Date(2018, 3, 16),
+
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()),
       name: " Mülkiyet Edinim Şekli: Satış    ",
       id: "3.Hissedar-1",
@@ -331,6 +350,7 @@ export function initTasks() {
     },
 
   ];
+
   return tasks;
 }
 

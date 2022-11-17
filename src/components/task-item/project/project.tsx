@@ -10,6 +10,7 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     ? task.styles.progressSelectedColor
     : task.styles.progressColor;
   const projectWith = task.x2 - task.x1;
+  const hide = task.styles.hide;
 
   const projectLeftTriangle = [
     task.x1,
@@ -28,8 +29,9 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     task.y + task.height / 2 - 1,
   ].join(",");
 
+  // @ts-ignore
   return (
-    <g tabIndex={0} className={styles.projectWrapper}>
+    <g tabIndex={0} className={styles.projectWrapper} style={{visibility: hide ? 'hidden' : 'visible' }}>
       <rect
         fill={barColor}
         x={task.x1}

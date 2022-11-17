@@ -20,6 +20,7 @@ export interface Task {
    */
   progress: number;
   styles?: {
+    hide?: boolean;
     backgroundColor?: string;
     backgroundSelectedColor?: string;
     progressColor?: string;
@@ -99,6 +100,7 @@ export interface StylingOption {
    * From 0 to 100
    */
   barFill?: number;
+  hide?: boolean;
   barProgressColor?: string;
   barProgressSelectedColor?: string;
   barBackgroundColor?: string;
